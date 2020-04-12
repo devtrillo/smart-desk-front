@@ -7,14 +7,14 @@ const themes = {
 };
 
 export const ThemeContext = createContext({
-  theme: themes.dark,
+  theme: themes.light,
 });
 
 export const ThemeProvider = ({ children }) => {
   const [selectedTheme, setSelectedTheme] = useState(() => {
     const theme = localStorage.getItem("theme");
-    if (!theme) localStorage.setItem("theme", themes.dark);
-    return !!theme ? theme : themes.dark;
+    if (!theme) localStorage.setItem("theme", themes.light);
+    return !!theme ? theme : themes.light;
   });
 
   const changeTheme = () => {
