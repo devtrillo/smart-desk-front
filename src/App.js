@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import isDesktop from "utils/mediaQueries";
 import styled from "@emotion/styled";
 import AppRouter from "components/AppRouter";
+import { SocketProvider } from "context/Socket";
 
 const Main = styled.main`
   grid-area: main;
@@ -19,12 +20,14 @@ const Main = styled.main`
 const App = () => {
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <Navbar />
-        <Main>
-          <AppRouter />
-        </Main>
-      </BrowserRouter>
+      <SocketProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Main>
+            <AppRouter />
+          </Main>
+        </BrowserRouter>
+      </SocketProvider>
     </ThemeProvider>
   );
 };
